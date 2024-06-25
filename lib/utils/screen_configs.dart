@@ -2,45 +2,45 @@ import 'package:flutter/material.dart';
 
 class ScreenConfigs {
   static late MediaQueryData _mediaQueryData;
-  static late double screenWidth;
-  static late double screenHeight;
-  static late double designWidth;
-  static late double designHeight;
-  static late double textScaleFactor;
+  static late double _screenWidth;
+  static late double _screenHeight;
+  static late double _designWidth;
+  static late double _designHeight;
+  static late double _textScaleFactor;
 
   static void init(BuildContext context, {Size designSize = const Size(375, 812)}) {
     _mediaQueryData = MediaQuery.of(context);
-    screenWidth = _mediaQueryData.size.width;
-    screenHeight = _mediaQueryData.size.height;
-    designWidth = designSize.width;
-    designHeight = designSize.height;
-    textScaleFactor = _mediaQueryData.textScaleFactor;
+    _screenWidth = _mediaQueryData.size.width;
+    _screenHeight = _mediaQueryData.size.height;
+    _designWidth = designSize.width;
+    _designHeight = designSize.height;
+    _textScaleFactor = _mediaQueryData.textScaleFactor;
   }
 
   static double sp(double size) {
-    double scale = screenWidth / designWidth;
-    return size * scale * textScaleFactor;
+    double scale = _screenWidth / _designWidth;
+    return size * scale * _textScaleFactor;
   }
 
   static double w(double size) {
-    return size * screenWidth / designWidth;
+    return size * _screenWidth / _designWidth;
   }
 
   static double h(double size) {
-    return size * screenHeight / designHeight;
+    return size * _screenHeight / _designHeight;
   }
 
   // Additional utility methods
 
-  static double get scaleWidth => screenWidth / designWidth;
+  static double get scaleWidth => _screenWidth / _designWidth;
 
-  static double get scaleHeight => screenHeight / designHeight;
+  static double get scaleHeight => _screenHeight / _designHeight;
 
   static double setWidth(double width) => w(width);
 
   static double setHeight(double height) => h(height);
 
-  static double radius(double r) => r * scaleWidth;
+  static double radius(double radius) => radius * scaleWidth;
 
   static double setSp(double fontSize) => sp(fontSize);
 
