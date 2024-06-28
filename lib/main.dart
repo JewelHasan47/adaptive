@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     ScreenConfigs.init(context);
 
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Adaptive',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
